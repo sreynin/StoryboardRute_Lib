@@ -14,11 +14,11 @@ public protocol Instantiable: AnyObject {
 }
 
 extension Instantiable {
-    static func instantiateFromStoryboard(sbName:String) -> Self {
+   public static func instantiateFromStoryboard(sbName:String) -> Self {
         return instantiateFromStoryboardHelper(sbName:sbName)
     }
     
-    private static func instantiateFromStoryboardHelper<T>(sbName:String) -> T {
+    public static func instantiateFromStoryboardHelper<T>(sbName:String) -> T {
         let identifier = String(describing: self)
         let storyboard = UIStoryboard(name: storyboardName, bundle: Bundle.module)
         return storyboard.instantiateViewController(withIdentifier: identifier) as! T
