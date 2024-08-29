@@ -1,6 +1,12 @@
 
 import UIKit
 
+public struct StoryboardRoutePackage_Lib {
+    public private(set) var text = "Hello, World!"
+
+    public init() {
+    }
+}
 
 public protocol Instantiable: AnyObject {
     static var storyboardName: String {get}
