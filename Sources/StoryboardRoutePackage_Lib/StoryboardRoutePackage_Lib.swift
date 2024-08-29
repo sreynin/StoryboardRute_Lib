@@ -1,12 +1,9 @@
 
 import UIKit
 
-public protocol StringConvertible {
-    var rawValue: String {get}
-}
 
 public protocol Instantiable: AnyObject {
-    static var storyboardName: StringConvertible {get}
+    static var storyboardName: String {get}
 }
 
 extension Instantiable {
@@ -16,7 +13,7 @@ extension Instantiable {
     
     public static func instantiateFromStoryboardHelper<T>() -> T {
         let identifier = String(describing: self)
-        let storyboard = UIStoryboard(name: storyboardName.rawValue, bundle: nil)
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         return storyboard.instantiateViewController(withIdentifier: identifier) as! T
     }
 }
